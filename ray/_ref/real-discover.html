@@ -1,0 +1,298 @@
+<!-- ============================================================
+     REFERENCE ONLY — real rendered <body> outerHTML copied from a
+     logged-in https://axiom.trade/discover session.
+     Used as ground truth for matching markup / class names / inline
+     styles. Not served by the app.
+     Last updated: 2026-10-10
+     ============================================================ -->
+
+<script src="/scripts/trading-view-lib/datafeeds/udf/dist/bundle.js?v=32.2.0-4ddc1473"></script>
+<body class="flex h-screen w-full flex-col antialiased">
+  <div class="flex min-h-0 w-full flex-1 flex-col">
+    <div class="platform-app-shell h-screen-safe flex flex-col overflow-hidden">
+      <div class="platform-shell-row flex min-h-0 flex-1 flex-row overflow-hidden">
+        <div class="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
+
+          <!-- ============ TOP NAV (desktop) ============ -->
+          <div id="platform-layout" class="hidden sm:block">
+            <div class="flex h-[52px] min-h-[48px] w-full flex-row items-center justify-between gap-[16px] overflow-hidden border-b border-primaryStroke px-[16px] sm:h-[64px] sm:min-h-[64px] sm:justify-start sm:gap-[16px] sm:px-[16px] lg:px-[24px]">
+              <div class="flex w-[36px] flex-shrink-0 flex-row items-center justify-start gap-[0px] sm:w-[24px] 2xl:w-[112px]">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><path d="M24.1384 17.3876H11.8623L18.0001 7.00012L24.1384 17.3876Z" fill="currentColor"/><path d="M31 29.0003L5 29.0003L9.96764 20.5933L26.0324 20.5933L31 29.0003Z" fill="currentColor"/></g><defs><clipPath id="a"><rect width="26" height="22" fill="white" transform="translate(5 7)"/></clipPath></defs></svg>
+                <svg width="73" height="21" viewBox="0 0 74 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden 2xl:block max-w-[73px]"><path d="M56.1914 18.3745V1.33447H59.7434L64.8074 15.3265L69.8714 1.33447H73.4234V18.3745H70.8314V5.89447L66.2474 18.3505H63.3674L58.7834 5.89447V18.3745H56.1914Z" fill="currentColor"/>... (wordmark paths elided) ...</svg>
+              </div>
+
+              <nav class="flex overflow-x-auto scrollbar-hide flex-row items-center justify-start gap-[4px]">
+                <a class="relative flex flex-row h-[32px] text-nowrap px-[8px] xl:px-[14px] items-center justify-start rounded-[4px] hover:text-primaryBlue hover:[transition:color_135ms_ease-in-out] text-primaryBlue" href="/discover">
+                  <span class="pointer-events-none absolute inset-0 z-0 rounded-[4px] bg-primaryBlue/20 opacity-0 scale-[0.97]"></span>
+                  <span class="relative z-[1] text-[14px] font-medium">Discover</span>
+                </a>
+                <a class="relative flex flex-row h-[32px] text-nowrap px-[8px] xl:px-[14px] items-center justify-start rounded-[4px] hover:text-primaryBlue hover:[transition:color_135ms_ease-in-out] text-textPrimary" href="#"><span class="relative z-[1] text-[14px] font-medium">Pulse</span></a>
+                <a class="... text-textPrimary" href="#"><span class="relative z-[1] text-[14px] font-medium">Trackers</span></a>
+                <a class="... text-textPrimary" href="#"><span class="relative z-[1] text-[14px] font-medium">Perpetuals</span></a>
+                <a class="... text-textPrimary" href="#"><span class="relative z-[1] text-[14px] font-medium">Predictions</span></a>
+                <a class="... text-textPrimary" href="#"><span class="relative z-[1] text-[14px] font-medium">Vision</span></a>
+                <a class="... text-textPrimary" href="#"><span class="relative z-[1] text-[14px] font-medium">Portfolio</span></a>
+                <a class="... text-textPrimary" href="#"><span class="relative z-[1] text-[14px] font-medium">Rewards</span></a>
+              </nav>
+
+              <div class="flex flex-row items-center justify-end gap-[16px] flex-1">
+                <button class="duration-fast hidden h-[32px] w-[32px] flex-shrink-0 flex-row items-center justify-center rounded-[6px] text-textTertiary hover:bg-primaryStroke/60 hover:text-textPrimary sm:flex 2xl:w-auto 2xl:pl-[12px] 2xl:pr-[6px]" type="button">
+                  <i class="ri-search-line text-[16px] sm:text-[18px]"></i>
+                  <span class="hidden 2xl:block text-[14px] text-textTertiary ml-[8px] mr-[42px]">Search or paste CA</span>
+                  <kbd class="hidden 2xl:flex ...">/</kbd>
+                </button>
+
+                <button class="relative flex h-[32px] flex-row items-center justify-start gap-[4px] rounded-full" type="button" aria-label="8 Chains">
+                  <span class="pointer-events-none absolute inset-0 overflow-hidden rounded-full" style="padding:1px; -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude;">
+                    <span class="absolute inset-0" style="background:linear-gradient(90deg,#526FFF,#CBFF00,#2775CA,#F0B90B,#7132F5,#97FCE4,#0052FF,#627EEA);"></span>
+                  </span>
+                  <span class="flex flex-row items-center justify-start gap-[4px] pl-[12px] pr-[4px]">
+                    <span class="flex flex-row items-center justify-start">
+                      <img class="-ml-[5px] h-[15px] w-[15px] rounded-full object-cover first:ml-0" src=".../sol-fill.svg" alt="">
+                      <!-- 8 chain icons total -->
+                    </span>
+                    <i class="ri-arrow-down-s-line text-[16px] text-textTertiary"></i>
+                  </span>
+                </button>
+
+                <button class="hidden h-[32px] flex-row items-center justify-center rounded-[4px] bg-primaryBlue px-[12px] hover:bg-primaryBlueHover sm:flex" type="button"><span class="text-[14px] font-semibold text-[#090909]">Deposit</span></button>
+
+                <button class="hidden h-[32px] w-[32px] flex-row items-center justify-center rounded-full text-textSecondary hover:bg-primaryStroke/60 sm:flex" type="button" aria-label="Watchlist"><i class="ri-star-line text-[18px]"></i></button>
+
+                <button class="hidden h-[32px] flex-row items-center justify-start gap-[6px] rounded-full bg-primaryStroke px-[10px] sm:flex" type="button">
+                  <i class="ri-wallet-line text-[16px] text-textSecondary"></i>
+                  <span class="flex flex-row items-center gap-[4px] text-[13px] text-textPrimary"><img class="rounded-full" src=".../sol-fill.svg" width="16" height="16" alt="SOL"><span>0</span></span>
+                  <i class="ri-arrow-down-s-line text-[16px] text-textTertiary"></i>
+                </button>
+
+                <div class="relative">
+                  <button class="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-primaryStroke text-[11px] font-semibold uppercase text-textPrimary" type="button" aria-label="Account">U</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============ MOBILE TOP BAR ============ -->
+          <div class="contents">
+            <div class="flex h-[44px] w-full flex-row items-center justify-between gap-[4px] border-b border-primaryStroke bg-background px-[8px] sm:hidden">
+              <button class="flex items-center" type="button" aria-label="Axiom"><svg width="18" height="18" .../></button>
+              <span class="flex-1"></span>
+              <button class="flex h-[28px] flex-row items-center gap-[4px] rounded-full bg-primaryStroke px-[8px] text-[12px] text-textPrimary" type="button"><i class="ri-wallet-line"></i><span>...0</span><i class="ri-arrow-down-s-line"></i></button>
+              <button class="flex h-[28px] flex-row items-center gap-[5px] rounded-full border border-primaryStroke px-[10px] text-[12px] text-textSecondary" type="button">Paste CA</button>
+              <button class="flex h-[32px] w-[32px] items-center justify-center rounded-[8px] text-textSecondary" type="button"><i class="ri-search-2-line text-[20px]"></i></button>
+              <button class="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-primaryStroke text-[11px] font-semibold" type="button">U</button>
+              <button class="flex h-[32px] w-[32px] items-center justify-center rounded-[8px] text-textSecondary" type="button"><i class="ri-menu-line text-[20px]"></i></button>
+            </div>
+          </div>
+
+          <!-- ============ TICKER ============ -->
+          <div class="hidden sm:block">
+            <div class="relative flex h-[28px] w-full flex-row gap-[8px] overflow-hidden px-[16px] pb-[1px] opacity-[0.85] transition-opacity duration-150 ease-out hover:opacity-100 border-b border-primaryStroke sm:border-primaryStroke/50">
+              <!-- settings / star / chart / history buttons + ticker strip -->
+            </div>
+          </div>
+
+          <!-- ============ MAIN ============ -->
+          <div class="platform-main-content relative flex min-h-0 flex-1 flex-row overflow-hidden">
+            <div id="platform-layout-container" class="relative flex min-h-0 flex-1 overflow-auto">
+              <div id="chart-root" class="relative">
+                <!-- TradingView container hidden off-screen -->
+                <div style="position:absolute; top:-10000px; left:-10000px; width:1px; height:1px;"></div>
+              </div>
+
+              <div class="contents"></div>
+              <div class="contents"></div>
+              <div class="contents"></div>
+              <div class="contents"></div>
+              <div class="contents"></div>
+
+              <!-- ====== DESKTOP DISCOVER (>=640) ====== -->
+              <div class="hidden h-full w-full flex-1 flex-col items-center justify-center overflow-auto sm:flex" data-perf-id="discover-trending">
+                <div class="flex h-full w-full flex-1 flex-col items-center justify-center overflow-hidden p-[24px] px-[16px] lg:px-[24px]">
+                  <div class="relative flex h-full w-full min-w-[0px] flex-1 flex-col items-start justify-center">
+                    <div class="flex h-full min-w-[0px] flex-1 flex-col items-center justify-center" style="width: min(1420px, 100% - 52px); margin-left: max(52px, 50% - 710px);">
+                      <!-- discover bar -->
+                      <div class="mb-[16px] flex h-[32px] min-h-[32px] w-full max-w-[1420px] flex-row items-center justify-center gap-[24px]">
+                        <div class="flex min-w-0 flex-1 flex-row items-center justify-start gap-[24px] overflow-hidden">
+                          <!-- tabs: Top / Trending(active) / Radar New / Callouts / Streamers New -->
+                        </div>
+                        <div class="flex flex-shrink-0 flex-row items-center justify-end gap-[16px]">
+                          <!-- times 1m 5m 30m 1h 24h, settings, hide, buy-delay, wallet, quick-buy -->
+                        </div>
+                      </div>
+
+                      <!-- table -->
+                      <div class="flex h-full w-full flex-1 flex-col items-center justify-center overflow-auto">
+                        <div class="flex h-full w-full min-w-[0px] max-w-[1420px] flex-1 flex-col items-start justify-start overflow-x-auto overflow-y-hidden rounded-[8px] border-[1px] border-primaryStroke bg-backgroundSecondary sm:rounded-[4px]" style="display:grid; grid-template-rows: auto minmax(0px, 1fr); grid-template-columns: 1fr;">
+                          <div class="sticky z-20 flex h-[32px] max-h-[32px] min-h-[32px] w-full min-w-[1120px] flex-row items-center justify-start whitespace-nowrap rounded-t-[4px] border-b-[1px] border-primaryStroke bg-backgroundSecondary pl-0 pr-[var(--scrollbar-gutter)] sm:h-[48px] sm:max-h-[48px] sm:min-h-[48px] sm:min-w-[1280px] sm:pl-[12px] sm:pr-[calc(12px_+_var(--scrollbar-gutter))]">
+                          <div class="flex w-[var(--discover-pair-info-width,224px)] flex-none flex-row items-center justify-start gap-[4px] px-[12px] sm:w-[352px]"><span class="text-[12px] font-medium text-textTertiary">Pair Info</span></div>
+                          <div class="flex w-[var(--discover-graph-width,72px)] flex-none flex-row items-center justify-center px-[12px] sm:flex-1"><span class="text-[12px] font-medium text-textTertiary"></span></div>
+                          <div class="flex w-[var(--discover-market-cap-width,96px)] flex-none flex-row items-center justify-start gap-[4px] px-[12px] sm:flex-1"><span class="text-[12px] font-medium text-textTertiary">Market Cap</span></div>
+                          <div class="flex w-[88px] flex-none flex-row items-center justify-start gap-[4px] px-[12px] sm:flex-1"><span class="text-[12px] font-medium text-textTertiary">Liquidity</span></div>
+                          <div class="flex w-[72px] flex-none flex-row items-center justify-start gap-[4px] px-[12px] sm:flex-1"><span class="text-[12px] font-medium text-textTertiary">Volume</span></div>
+                          <div class="flex w-[104px] flex-none flex-row items-center justify-start gap-[4px] px-[12px] sm:flex-1"><span class="text-[12px] font-medium text-textTertiary">TXNS</span></div>
+                          <div class="flex w-[var(--discover-token-info-width,320px)] flex-none flex-row items-center justify-start gap-[4px] px-[12px]"><span class="text-[12px] font-medium text-textTertiary">Token Info</span></div>
+                          <div class="flex w-[144px] flex-none flex-row items-center justify-start gap-[4px] px-[12px] sm:w-[176px]"><span class="text-[12px] font-medium text-textTertiary">Action</span></div>
+                        </div>
+
+                        <section class="flex w-full min-w-[1120px] max-w-[1420px] flex-grow flex-col overflow-y-auto overflow-x-hidden sm:min-w-[1280px]">
+                          <!-- VIRTUALIZED: inner spacer sized to rows, each row absolutely positioned by data-index -->
+                          <div style="height: 3040px; width: 100%; position: relative;">
+                            <div data-index="0" style="position:absolute; top:0; left:0; width:100%; height:80px;">
+                              <div class="group/pulseRow group relative flex h-[80px] max-h-[80px] min-h-[80px] w-full min-w-[1120px] sm:min-w-[1280px] max-w-[1420px] flex-grow cursor-pointer flex-row items-center justify-start whitespace-nowrap rounded-b-[0px] border-b-[1px] border-primaryStroke/50 bg-backgroundSecondary px-0 active:bg-primaryStroke/50 sm:h-[88px] sm:max-h-[88px] sm:min-h-[88px] sm:px-[12px] sm:hover:bg-primaryStroke/50">
+                                <!-- hide-token button -->
+                                <button class="pointer-events-none absolute z-50 text-textTertiary opacity-0 transition-opacity group-hover/pulseRow:pointer-events-auto group-hover/pulseRow:opacity-100" style="top:6px; left:6px;" type="button"><span class="flex h-[24px] w-[24px] items-center justify-center rounded-[4px] border border-secondaryStroke/50 bg-backgroundTertiary"><i class="ri-eye-off-line text-[16px]"></i></span></button>
+
+                                <!-- PAIR cell -->
+                                <div class="flex w-[var(--discover-pair-info-width,224px)] min-w-0 flex-none flex-row items-center justify-start gap-[12px] sm:w-[352px] px-[12px]">
+                                  <div class="relative h-[40px] w-[40px] flex-shrink-0 items-center justify-center sm:h-[62px] sm:w-[62px]">
+                                    <!-- chain/protocol badge top... actually bottom-right -->
+                                    <span class="pointer-events-auto absolute z-30 bottom-[-3px] right-[-3px] flex items-center rounded-full p-[1px] sm:bottom-[-4px] sm:right-[-4px]" style="background: linear-gradient(219deg,#FFD700 0%,#DAA520 48.97%,#B8860B 48.98%,#996515 100%);">
+                                      <span class="flex h-[12px] items-center gap-[2px] rounded-full bg-background px-[2px] sm:h-[14px]">
+                                        <img class="h-[10px] w-[10px] rounded-full object-contain" src=".../sol-fill.svg" alt="">
+                                        <img class="h-[10px] w-[10px] rounded-full object-contain" src=".../protocol-marks/pump.webp" alt="">
+                                      </span>
+                                    </span>
+                                    <!-- image frame -->
+                                    <span class="absolute z-20 flex items-center justify-start rounded-[4px] p-[1px]" style="background: <chainColor>">
+                                      <span class="group flex items-center justify-start rounded-[3px] bg-backgroundSecondary p-[2px]">
+                                        <span class="relative h-[36px] w-[36px] overflow-hidden rounded-[1px] sm:h-[56px] sm:w-[56px]">
+                                          <img class="h-full w-full object-cover" src="...webp" alt="">
+                                        </span>
+                                      </span>
+                                    </span>
+                                    <!-- colored background fill -->
+                                    <span class="absolute left-0 top-0 z-10 flex h-[42px] w-[42px] items-center justify-center rounded-[4px] sm:h-[62px] sm:w-[62px]" style="background:<chainColor>"></span>
+                                    <!-- image-count badge (conditional) -->
+                                    <span class="absolute right-[-6px] top-[-6px] z-40 flex h-[20px] min-w-[20px] items-center justify-center gap-[2px] rounded-full border border-secondaryStroke/50 bg-backgroundTertiary px-[3px] shadow-[0_1px_4px_rgba(0,0,0,0.12)]"><span class="font-GeistMono text-[10px] text-textSecondary">10</span><i class="ri-image-circle-line text-[12px] text-textTertiary"></i></span>
+                                  </div>
+
+                                  <div class="flex min-w-0 flex-1 flex-col items-start justify-start gap-[4px]">
+                                    <div class="flex w-full min-w-0 flex-row items-center justify-start gap-[4px]">
+                                      <span class="min-w-0 overflow-hidden truncate whitespace-nowrap text-[12px] font-medium tracking-[-0.02em] text-textPrimary sm:text-[16px]" style="--truncated-row-floor: 48px;">ONDEX</span>
+                                      <span class="overflow-hidden truncate whitespace-nowrap text-[12px] text-textTertiary hover:text-primaryBlueHover" style="--truncated-row-floor: 66px;"><i class="ri-file-copy-line mr-[2px]"></i>Ondex</span>
+                                      <span class="flex w-fit flex-shrink-0 cursor-default flex-row items-center whitespace-nowrap rounded-full h-[20px] gap-[2px] pl-[4px] pr-[6px] bg-taxLow/[0.08] text-taxLow"><i class="ri-percent-line text-[12px]"></i><span class="font-GeistMono text-[11px]">1%</span></span>
+                                    </div>
+                                    <div class="flex min-w-0 flex-row items-center justify-start gap-[8px] sm:min-w-[auto]">
+                                      <span class="text-primaryGreen text-[12px] sm:text-[14px]">36m</span>
+                                      <!-- link icons, rocket timer, search, quote chip, views -->
+                                      <span class="flex flex-row items-center gap-[3px] text-textTertiary"><i class="ri-eye-line text-[13px]"></i><span class="text-[12px]">199</span></span>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- GRAPH cell -->
+                                <div class="flex w-[var(--discover-graph-width,72px)] min-w-0 flex-none flex-row items-center justify-start px-[12px] sm:flex-1 sm:-ml-[12px] sm:pr-0">
+                                  <div class="relative h-[40px] w-[100%]">
+                                    <div class="relative opacity-70"><svg viewBox="0 0 100 40" preserveAspectRatio="none" class="..."><path .../></svg></div>
+                                  </div>
+                                </div>
+
+                                <!-- MARKET CAP -->
+                                <div class="flex w-[var(--discover-market-cap-width,96px)] flex-none flex-col items-start justify-start gap-[4px] px-[12px] sm:flex-1"><span class="text-[12px] font-medium text-textPrimary sm:text-[14px]">$338K</span><span class="font-GeistMono text-[12px] font-medium text-primaryGreen">+23.84%</span></div>
+                                <!-- LIQUIDITY -->
+                                <div class="flex w-[88px] flex-none flex-col items-start justify-start gap-[4px] px-[12px] sm:flex-1"><span class="text-[12px] font-medium text-textPrimary sm:text-[14px]">$26.4K</span></div>
+                                <!-- VOLUME -->
+                                <div class="flex w-[72px] flex-none flex-col items-start justify-start gap-[4px] px-[12px] sm:flex-1"><span class="text-[12px] font-medium text-textPrimary sm:text-[14px]">$59.4K</span></div>
+                                <!-- TXNS -->
+                                <div class="flex w-[104px] flex-none flex-col items-start justify-start gap-[4px] px-[12px] sm:flex-1"><span class="text-[12px] font-medium text-textPrimary sm:text-[14px]">184</span><span class="font-GeistMono text-[12px] font-medium"><span class="text-primaryGreen">89</span><span class="text-textTertiary">/</span><span class="text-primaryRed">95</span></span></div>
+
+                                <!-- TOKEN INFO -->
+                                <div class="flex w-[var(--discover-token-info-width,320px)] flex-none flex-row items-center justify-start px-[12px]">
+                                  <div class="flex min-w-[72px] flex-row items-center justify-start gap-[4px]">
+                                    <div class="flex flex-col items-start justify-start gap-[2px]"><span class="flex flex-row items-center gap-[3px] ... rounded-[4px] border-[1px] border-primaryStroke/50 bg-backgroundSecondary px-[4px] h-[16px] sm:h-[20px] relative isolate overflow-hidden"><i class="ri-user-star-line text-[11px]"></i><span class="text-primaryRed font-GeistMono text-[10px] font-medium sm:text-[11px]">23.2%</span></span></div>
+                                    <div class="flex flex-col items-start justify-start gap-[2px]">...</div>
+                                    <div class="flex flex-col items-start justify-start gap-[2px]">...</div>
+                                  </div>
+                                  <div class="flex flex-col items-start justify-start gap-[2px]">... dex-paid / safe pills ...</div>
+                                </div>
+
+                                <!-- ACTION -->
+                                <div class="flex w-[144px] flex-none h-full flex-col items-stretch justify-center gap-[4px] px-[12px] sm:w-[176px]">
+                                  <button class="bg-primaryBlue hover:bg-primaryBlueHover text-[#090909] flex flex-row gap-[4px] items-center justify-center whitespace-nowrap" type="button" style="padding-left: 12px; padding-right: 12px; border-radius: 999px; height: 32px;">
+                                    <span class="text-[12px] font-bold relative z-10">Buy</span>
+                                    <span class="text-[12px] font-bold relative z-10">0 SOL</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- ... 8 more absolutely-positioned rows at top:80,160,240,... -->
+                          </div>
+                        </section>
+                      </div>
+
+                      <!-- CHAIN RAIL -->
+                      <div class="absolute top-[48px]" style="left: max(0px, 50% - 762px);">
+                        <div class="relative flex items-center gap-[2px] rounded-full p-[4px] w-[40px] flex-col bg-background">
+                          <span class="pointer-events-none absolute inset-0 overflow-hidden rounded-full" style="padding:1px; -webkit-mask:...; mask-composite:exclude;"><span class="absolute inset-0" style="background:linear-gradient(90deg,#526FFF,#CBFF00,#2775CA,#F0B90B,#7132F5,#97FCE4,#0052FF,#627EEA);"></span></span>
+                          <button class="relative flex items-center gap-[5px] rounded-full text-[12px] font-medium h-[32px] w-[32px] justify-center cursor-default bg-secondaryStroke/60 text-textPrimary" type="button">All</button>
+                          <span class="flex-none bg-secondaryStroke/60 my-[2px] h-px w-[18px]"></span>
+                          <button class="relative flex items-center gap-[5px] rounded-full text-[12px] font-medium h-[32px] w-[32px] justify-center cursor-pointer" type="button" style="background-color: rgb(var(--primary-color)/0.15); color: rgb(var(--primary-color)/1);"><img class="h-[18px] w-[18px] rounded-full object-contain" src=".../sol-fill.svg" alt="Solana"></button>
+                          <!-- 7 more chain buttons -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ====== MOBILE DISCOVER (<640) ====== -->
+              <div class="flex h-full w-full flex-1 flex-col items-center justify-start gap-[0px] overflow-hidden pb-[4px] pt-[16px] sm:hidden" data-perf-id="discover-trending">
+                <div class="flex w-full flex-1 flex-col items-center justify-start gap-[16px] overflow-hidden px-[4px]">
+                  <!-- mobile tabs + table -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============ STATUS BAR ============ -->
+          <div class="hidden sm:block">
+            <div class="flex h-[36px] min-h-[36px] w-full flex-row items-center justify-between border-t border-primaryStroke bg-background px-[24px] min-w-0">
+              <div class="flex flex-shrink-0 flex-row items-center justify-start gap-[8px]">
+                <button class="flex h-[24px] cursor-pointer flex-row items-center justify-start gap-[4px] rounded-[4px] bg-primaryBlue/20 px-[8px] text-primaryBlue" type="button"><i class="ri-list-check"></i><span class="text-[11px] font-semibold">PRESET 1</span></button>
+                <button class="group/wallets flex h-[24px] flex-row items-center justify-start gap-[5px] rounded-full border border-primaryStroke pl-[8px] pr-[5px]" type="button"><i class="ri-wallet-line"></i><span>1</span></button>
+                <button class="flex h-[24px] w-[24px] items-center justify-center rounded-[4px]" type="button"><i class="ri-settings-3-line"></i></button>
+                <span class="h-[16px] w-px bg-primaryStroke"></span>
+                <!-- nav buttons Wallet/Social/Discover/Pulse/PnL/Friends/Streams/Callouts -->
+                <span class="hidden h-[16px] w-px bg-primaryStroke lg:flex"></span>
+                <!-- lighthouse pill + cross-chain volume pill (lg) -->
+                <span class="hidden h-[16px] w-px bg-primaryStroke lg:flex"></span>
+                <!-- prices SOL / BNB / HYPE -->
+              </div>
+              <div class="flex flex-shrink-0 flex-row items-center justify-end gap-[8px]">
+                <button class="hidden 2xl:flex ..." type="button">$44.9K</button>
+                <span class="h-[16px] w-px bg-primaryStroke"></span>
+                <button class="flex h-[24px] flex-row items-center gap-[5px] rounded-[4px] bg-primaryGreen/20 px-[8px] hover:bg-primaryGreen/30" type="button"><span class="h-[6px] w-[6px] rounded-full bg-primaryGreen"></span><span>Auto</span></button>
+                <span class="h-[16px] w-px bg-primaryStroke"></span>
+                <!-- layout / notification / palette icons -->
+                <span class="hidden h-[16px] w-px bg-primaryStroke md:flex"></span>
+                <!-- discord / twitter / docs / bug -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============ MOBILE NAVBAR ============ -->
+      <div class="mobile-navbar-shell ios-h-fix z-30">
+        <div class="contents">
+          <div class="mobile-navbar flex w-full flex-col border-primaryStroke/0 bg-background items-center justify-start border-t">
+            <div class="flex h-[56px] w-full flex-row items-center justify-evenly">
+              <button class="group flex flex-col items-center justify-center gap-[4px]" type="button"><i class="ri-fire-line text-[20px]"></i><span class="text-[12px] font-medium leading-[16px] text-textPrimary">Trending</span></button>
+              <button class="group flex flex-col items-center justify-center gap-[4px]" type="button"><i class="ri-radar-line text-[20px]"></i><span class="text-[12px] font-medium leading-[16px] text-textTertiary">Track</span></button>
+              <button class="group flex flex-col items-center justify-center gap-[4px]" type="button"><i class="ri-pulse-line text-[20px]"></i><span class="text-[12px] font-medium leading-[16px] text-textTertiary">Pulse</span></button>
+              <button class="group flex flex-col items-center justify-center gap-[4px]" type="button"><i class="ri-exchange-line text-[20px]"></i><span class="text-[12px] font-medium leading-[16px] text-textTertiary">Perpetuals</span></button>
+              <button class="group flex flex-col items-center justify-center gap-[4px]" type="button"><i class="ri-folder-user-line text-[20px]"></i><span class="text-[12px] font-medium leading-[16px] text-textTertiary">Account</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div data-rht-toaster="" style="position: fixed; inset: 52px 16px 16px; pointer-events: none; z-index: 200000;"></div>
+  <canvas width="0" height="0" style="display:none;"></canvas>
+</body>

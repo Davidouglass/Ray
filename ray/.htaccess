@@ -1,0 +1,73 @@
+# ---------------------------------------------------------------------------
+# Veridian — root .htaccess
+#
+# Enables the "upload the whole app into public_html" hosting style:
+#
+#   public_html/
+#   ├── index.php        <- Laravel front controller (this app's root)
+#   ├── .htaccess        <- this file
+#   ├── app/ bootstrap/  config/ database/ resources/ routes/ storage/ vendor/
+#   └── public/          <- css/ js/ images/ videos/ avatars/ (the real assets)
+#
+# Requests are handled like this:
+#   /css/app.css   -> served from  public/css/app.css
+#   /images/x.png  -> served from  public/images/x.png
+#   /anything-else -> passed to   index.php  (Laravel)
+#
+# The original public/.htaccess is left in place, so the classic
+# "docroot = public/" layout keeps working too. You only need ONE of the two.
+# ---------------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP_AUTHORIZATION}]
+
+    # -------------------------------------------------------------------------
+    # 1. Serve static assets from the public/ subfolder.
+    #    The real files live in public/, but URLs stay clean: /css/app.css
+    #    NOTE: keep this list in sync if you add a new asset FOLDER to public/
+    # -------------------------------------------------------------------------
+    RewriteRule ^(css|js|images|videos|avatars|fonts|build|media|uploads)/(.*)$ public/$1/$2 [L]
+
+    # -------------------------------------------------------------------------
+    # 2. Top-level files that live in public/.
+    #    NOTE: keep this list in sync if you add a new file to public/
+    # -------------------------------------------------------------------------
+    RewriteRule ^(favicon\.svg|favicon\.ico|apple-touch-icon\.png|apple-touch-icon-precomposed\.png|robots\.txt|site\.webmanifest|manifest\.json|browserconfig\.xml|sitemap\.xml|sw\.js|service-worker\.js)$ public/$1 [L]
+
+    # -------------------------------------------------------------------------
+    # 3. Static files that sit directly in the app root
+    # -------------------------------------------------------------------------
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # -------------------------------------------------------------------------
+    # 4. Everything else goes to the Laravel front controller.
+    # -------------------------------------------------------------------------
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Never allow directory listing.
+Options -Indexes
+
+# ---------------------------------------------------------------------------
+# Deny direct web access to sensitive files and folders.
+# ---------------------------------------------------------------------------
+<FilesMatch "^\.env|\.env\..*|composer\.(json|lock)|package(-lock)?\.json|phpunit\.xml|vite\.config\.js|\.gitignore|\.gitattributes|\.editorconfig|artisan$|README\.md$|DEPLOY\.md$">
+    Require all denied
+</FilesMatch>
+
+# Block access to application source and dependency directories.
+RedirectMatch 404 /(app|bootstrap|config|database|resources|routes|storage|tests|vendor|node_modules)(/|$)
+
+# Block direct hits on the nested Laravel entry point.
+RedirectMatch 404 /public/index\.php

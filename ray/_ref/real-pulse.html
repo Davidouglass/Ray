@@ -1,0 +1,140 @@
+<!--
+  Condensed reference of the real Axiom /pulse <body> outerHTML pasted by the user.
+  Long repeated icon/wordmark path data elided. Tailwind utility classes are the
+  original markup; our clone reimplements these with semantic classes in app-shell.css.
+-->
+<body class="flex h-screen w-full flex-col antialiased">
+<div id="root" class="flex min-h-0 w-full flex-1 flex-col">
+  <div class="platform-app-shell h-screen-safe flex flex-col overflow-hidden">
+    <div class="platform-shell-row flex min-h-0 flex-1 flex-row overflow-hidden">
+      <div class="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
+
+        <!-- TOP BAR (#platform-layout) -->
+        <div id="platform-layout" class="hidden sm:block">
+          <div class="flex h-[52px] min-h-[48px] items-center border-b border-primaryStroke px-[16px] sm:h-[64px] sm:gap-[16px] sm:px-[16px] lg:px-[24px]">
+            <!-- brand: 36x36 mark + 73x21 wordmark (hidden 2xl:block) -->
+            <!-- tabs -->
+            <a href="/discover?chains=sol,robinhood,arc,bnb,ink,hype,base,eth&pulseChains=...&trackerChains=...&discoverChains=..." data-discover="true" class="... rounded-[4px] hover:text-primaryBlue">Discover</a>
+            <a href="/pulse?...same query..." data-discover="true" class="relative flex flex-row h-[32px] text-nowrap px-[8px] xl:px-[14px] items-center justify-start rounded-[4px] text-primaryBlue">
+              <span class="pointer-events-none absolute inset-0 z-0 rounded-[4px] bg-primaryBlue/20"></span>
+              <span class="relative z-[1] text-[14px] font-medium">Pulse</span>
+            </a>
+            <a href="/trackers?...">Trackers</a>
+            <a href="/perpetuals?...">Perpetuals</a>
+            <a href="/predictions?...">Predictions</a>
+            <a href="/vision?...">Vision</a>
+            <a href="/portfolio?...">Portfolio</a>
+            <a href="/rewards?...">Rewards</a>
+            <!-- actions: search pill, 8-chain pill (masked gradient border, 15px icons -ml-[5px]),
+                 Deposit (hidden sm:flex), star, wallet pill, avatar+menu -->
+          </div>
+        </div>
+
+        <!-- MAIN PULSE CONTENT -->
+        <main class="flex h-full min-h-0 w-full flex-col overflow-hidden bg-background">
+          <div class="flex h-full w-full flex-1 flex-col gap-[0px] items-center justify-start overflow-hidden pb-[4px] pt-[16px]">
+
+            <!-- chains pill + P1 preset -->
+            <div class="... h-[24px]">
+              <button class="... rounded-full ...">8-chain stack + caret</button>
+              <button class="..."><span>P1</span><i class="ri-settings-3-line"></i></button>
+            </div>
+
+            <!-- segmented control -->
+            <div class="... min-h-[32px] rounded-[16px] border border-primaryStroke p-[2px]">
+              <button class="... min-h-[26px] rounded-[13px] bg-backgroundSecondary">New Pairs</button>
+              <button class="... min-h-[26px] rounded-[13px]">Final Stretch</button>
+              <button class="... min-h-[26px] rounded-[13px]">Migrated</button>
+            </div>
+
+            <!-- wallets + quick buy + search toolbar -->
+            <div class="...">
+              <button class="... rounded-full border">wallet 1 | 0 SOL | caret</button>
+              <div class="flex h-[32px] ... rounded-full border">Quick Buy <input> <chain> P1 P2 P3</div>
+              <div class="... rounded-full border">Search by ticker or name</div>
+              <button class="..."><i class="ri-filter-3-line"></i> Filter</button>
+            </div>
+
+            <!-- table -->
+            <div class="flex w-full flex-1 flex-row ... rounded-[8px] border bg-backgroundSecondary">
+              <section data-perf-id="pulse-newPairs" class="...">
+                <header class="...">
+                  New Pairs
+                  <input placeholder="Search by ticker or name">
+                  <quick buy mini P1 P2 P3>
+                  <hide / equalizer icons>
+                </header>
+
+                <!-- virtualized list: inner height = rows*142 -->
+                <div style="height: 4260px; position: relative;">
+                  <div class="absolute left-0 top-0 w-full" style="transform: translateY(142px);">
+                    <div class="flex h-[142px] w-full flex-row items-stretch border-b border-primaryStroke/50 bg-backgroundSecondary pl-[12px] pr-[8px] hover:bg-backgroundTertiary"
+                         data-pulse-chain="sol" data-pulse-token-address="...pump">
+
+                      <!-- avatar 74px + progress ring svg 78x78 -->
+                      <div class="relative h-[74px] w-[74px]">
+                        <svg width="78" height="78" viewBox="0 0 78 78">
+                          <circle ... stroke-track />
+                          <circle ... stroke-dasharray="296" stroke-dashoffset="..." />
+                        </svg>
+                        <img class="h-[74px] w-[74px] rounded-full ..." src="...">
+                        <span class="... rounded-full ...">pump</span>
+                      </div>
+
+                      <!-- pair text -->
+                      <div>
+                        <div><span>CHESS</span> <span>Chess <i class="ri-file-copy-line"></i></span></div>
+                        <div><span>age (green)</span> <social icons> <span>9DVs…pump</span></div>
+                      </div>
+
+                      <!-- token info pills: h-[24px] rounded-full px-[5px] bg-backgroundSecondary border border-primaryStroke/50 -->
+                      <div>
+                        <span><i class="icon-user-star"></i></span>
+                        <span><i class="icon-chef-hat"></i></span>
+                        <span><i class="icon-crosshair"></i></span>
+                        <span><i class="icon-ghost"></i></span>
+                        <span><i class="icon-boxes"></i></span>
+                        <span><i class="icon-leaf"></i></span>
+                      </div>
+
+                      <!-- stats: V / MC / F / NB / TX with 24px progress bar -->
+                      <div>V / MC / F / NB / TX</div>
+
+                      <!-- buy pill: h-[24px] rounded-full + ri-flashlight-fill -->
+                      <button style="border-radius:999px; height:24px"> <i class="ri-flashlight-fill"></i> 0 SOL </button>
+                    </div>
+                  </div>
+                  <!-- ...rows translateY(N*142px) up to 30 rows... -->
+                </div>
+              </section>
+            </div>
+
+          </div>
+        </main>
+
+        <!-- STATUS BAR: h-[36px] border-t border-primaryStroke
+             left: PRESET 1, wallets, settings, divider, nav(Wallet/Social/Discover/Pulse/PnL/Friends/Streams/Callouts),
+                   Lighthouse + Cross-Chain pills (lg), prices SOL/BNB/HYPE (lg)
+             right: $44.9K (2xl), Auto, layout/notification/palette, discord/twitter, Docs/bug -->
+        <div class="... h-[36px] border-t border-primaryStroke">
+          prices: SOL $109.72 | BNB $745 | HYPE $84.45   (sample values from the paste)
+        </div>
+
+        <!-- MOBILE NAVBAR (same 5 destinations) -->
+        <div class="mobile-navbar-shell ios-h-fix z-30">
+          <div class="mobile-navbar flex w-full flex-col ... border-t">
+            <div class="flex h-[56px] w-full flex-row items-center justify-evenly">
+              <a href="/discover"><i class="ri-fire-line"></i><span>Trending</span></a>
+              <a href="/trackers"><i class="ri-radar-line"></i><span>Track</span></a>
+              <a href="/pulse" class="text-primaryBlue"><i class="ri-pulse-line"></i><span>Pulse</span></a>
+              <a href="/perpetuals"><i class="ri-exchange-line"></i><span>Perpetuals</i></span></a>
+              <a href="/portfolio"><i class="ri-folder-user-line"></i><span>Account</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>

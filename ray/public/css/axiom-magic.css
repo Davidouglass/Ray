@@ -1,0 +1,186 @@
+/* =====================================================================
+   Axiom "magic" layer — animated backdrop, glows, gradient borders,
+   reveal-on-scroll, shimmer, glass, marquee, tilt, ripple.
+   Loaded after app-shell.css / feature CSS.
+   ========================================================================= */
+
+:root {
+    --magic-a: #526FFF;
+    --magic-b: #12d6b0;
+    --magic-c: #b06bff;
+    --glow-blue: 0 0 0 1px rgba(82,111,255,.35), 0 8px 40px -8px rgba(82,111,255,.55);
+    --glow-up: 0 0 24px rgba(47,227,172,.35);
+}
+
+/* ---------- animated backdrop ================= */
+.magic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+        radial-gradient(1100px 600px at 12% -8%, rgba(82,111,255,.16), transparent 60%),
+        radial-gradient(900px 500px at 88% 4%, rgba(0,214,159,.12), transparent 60%),
+        radial-gradient(800px 700px at 50% 120%, rgba(160,80,255,.10), transparent 60%);
+}
+.magic-bg::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 46px 46px;
+    transform: perspective(600px) rotateX(58deg) translateY(-10%);
+    mask-image: radial-gradient(closest-side at 50% 40%, #000 30%, transparent 78%);
+    -webkit-mask-image: radial-gradient(closest-side at 50% 40%, #000 30%, transparent 78%);
+    animation: mg-grid 22s linear infinite;
+    opacity: .5;
+}
+.magic-bg .mg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: .55;
+    will-change: transform;
+}
+.magic-bg .mg-orb.a { width: 460px; height: 460px; left: -80px; top: 6%;  background: radial-gradient(circle, rgba(82,111,255,.75), transparent 65%); animation: mg-float 20s ease-in-out infinite; }
+.magic-bg .mg-orb.b { width: 380px; height: 380px; right: -60px; top: 24%; background: radial-gradient(circle, rgba(0,214,159,.7), transparent 65%); animation: mg-float 26s ease-in-out infinite reverse; }
+.magic-bg .mg-orb.c { width: 520px; height: 520px; left: 40%; bottom: -18%; background: radial-gradient(circle, rgba(160,80,255,.6), transparent 65%); animation: mg-float 32s ease-in-out infinite; }
+.mg-content { position: relative; z-index: 1; }
+
+@keyframes mg-grid { from { background-position: 0 0; } to { background-position: 46px 46px; } }
+@keyframes mg-float {
+    0%, 100% { transform: translate3d(0,0,0) scale(1); }
+    33%      { transform: translate3d(40px,-30px,0) scale(1.08); }
+    66%      { transform: translate3d(-30px,25px,0) scale(.95); }
+}
+
+/* ===== gradient animated text ===== */
+.mg-title-grad {
+    background: linear-gradient(100deg, #fff 10%, #9db4ff 35%, #46e0c0 55%, #c79bff 75%, #fff 92%);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: mg-shift 7s linear infinite;
+}
+@keyframes mg-shift { to { background-position: 220% center; } }
+
+/* ===== glass panels / cards ===== */
+.mg-glass, .fx-panel, .fx-card {
+    background: linear-gradient(180deg, rgba(22,25,34,.72), rgba(13,15,21,.72)) !important;
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    border: 1px solid rgba(255,255,255,.07) !important;
+    box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 18px 40px -24px rgba(0,0,0,.9);
+}
+.fx-panel:hover, .fx-card:hover { border-color: rgba(120,140,255,.32) !important; }
+
+/* animated gradient border wrapper */
+.mg-border { position: relative; border-radius: 14px; }
+.mg-border::before {
+    content: "";
+    position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
+    background: conic-gradient(from var(--mg-a, 0deg), rgba(82,111,255,.0), rgba(82,111,255,.9), rgba(0,214,159,.9), rgba(160,80,255,.9), rgba(82,111,255,0));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    animation: mg-spin 6s linear infinite; opacity: .8; pointer-events: none;
+}
+@property --mg-a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@keyframes mg-spin { to { --mg-a: 360deg; } }
+
+/* ===== reveal on scroll ===== */
+.mg-reveal { opacity: 0; transform: translateY(22px) scale(.985); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); will-change: opacity, transform; }
+.mg-reveal.is-in { opacity: 1; transform: none; }
+
+/* ===== buttons: shine + ripple + glow ===== */
+.fx-btn, .mg-btn { position: relative; overflow: hidden; isolation: isolate; }
+.fx-btn::after {
+    content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent);
+    transform: skewX(-18deg); transition: left .55s ease;
+}
+.fx-btn:hover::after { left: 130%; }
+.fx-btn:not(.ghost) { box-shadow: 0 8px 26px -10px rgba(82,111,255,.9); }
+.fx-btn:hover { transform: translateY(-1px); }
+.fx-btn:active { transform: translateY(0) scale(.98); }
+.mg-ripple { position: absolute; border-radius: 50%; transform: scale(0); background: rgba(255,255,255,.45); animation: mg-ripple .6s ease-out forwards; pointer-events: none; }
+@keyframes mg-ripple { to { transform: scale(14); opacity: 0; } }
+
+/* ===== hover lift + tilt ===== */
+.mg-lift { transition: transform .25s ease, box-shadow .25s ease; }
+.mg-lift:hover { transform: translateY(-4px); box-shadow: 0 24px 44px -26px rgba(82,111,255,.7); }
+.mg-tilt { transform-style: preserve-3d; transition: transform .18s ease; }
+
+/* ===== stat counters / hero ic glow ===== */
+.fx-ic { position: relative; box-shadow: 0 0 0 1px rgba(82,111,255,.25), 0 0 30px -6px rgba(82,111,255,.8); animation: mg-icon 4.5s ease-in-out infinite; }
+@keyframes mg-icon { 0%,100% { box-shadow: 0 0 0 1px rgba(82,111,255,.25), 0 0 24px -8px rgba(82,111,255,.7); } 50% { box-shadow: 0 0 0 1px rgba(0,214,159,.4), 0 0 40px -4px rgba(0,214,159,.8); } }
+.fx-head h1 { letter-spacing: -.01em; }
+.fx-stat b { font-variant-numeric: tabular-nums; }
+
+/* ===== shimmer skeleton ===== */
+.mg-skeleton { position: relative; overflow: hidden; background: rgba(255,255,255,.05); border-radius: 8px; color: transparent !important; }
+.mg-skeleton::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); animation: mg-shim 1.4s infinite; }
+@keyframes mg-shim { to { transform: translateX(100%); } }
+
+/* ===== chart draw ===== */
+.fx-spark .line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: mg-draw 1.6s ease forwards; filter: drop-shadow(0 6px 14px rgba(47,227,172,.35)); }
+.fx-spark .area { opacity: 0; animation: mg-fade .9s .9s ease forwards; }
+@keyframes mg-draw { to { stroke-dashoffset: 0; } }
+@keyframes mg-fade { to { opacity: .28; } }
+
+/* ===== ticker marquee ===== */
+.mg-marquee { animation: mg-marquee 38s linear infinite; }
+.mg-marquee:hover { animation-play-state: paused; }
+@keyframes mg-marquee { to { transform: translateX(-50%); } }
+
+/* ===== chips glow + table row sweep ===== */
+.fx-chip { transition: .18s; }
+.fx-chip:hover { border-color: var(--blue); color: var(--text-primary); box-shadow: 0 0 18px -6px var(--blue); }
+.fx-table tbody tr { transition: background .15s, transform .15s; }
+.fx-table tbody tr:hover { transform: translateX(2px); }
+
+/* ===== progress bar animated ===== */
+.fx-bar span { position: relative; }
+.fx-bar span::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent); transform: translateX(-100%); animation: mg-shim 2.2s infinite; }
+
+/* ===== floating toast ===== */
+.mg-toast-host { position: fixed; right: 18px; bottom: 18px; z-index: 90; display: flex; flex-direction: column; gap: 10px; }
+.mg-toast { padding: 12px 16px; border-radius: 12px; font-size: 13.5px; color: #fff; background: linear-gradient(135deg, rgba(82,111,255,.95), rgba(0,214,159,.9)); box-shadow: 0 18px 40px -18px rgba(0,214,159,.8); animation: mg-toastIn .4s cubic-bezier(.22,1,.36,1); }
+@keyframes mg-toastIn { from { opacity: 0; transform: translateY(14px) scale(.96); } }
+
+/* ===== page enter ===== */
+.mg-enter { animation: mg-enter .6s cubic-bezier(.22,1,.36,1); }
+@keyframes mg-enter { from { opacity: 0; transform: translateY(14px); } }
+
+/* ===== modal for in-site order tickets ===== */
+.mg-modal { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; }
+.mg-modal.open { display: flex; }
+.mg-modal-bg { position: absolute; inset: 0; background: rgba(4,6,11,.72); backdrop-filter: blur(8px); animation: mg-fade .3s ease; }
+.mg-modal-card { position: relative; width: 100%; max-width: 440px; border-radius: 18px; padding: 20px; background: linear-gradient(180deg, rgba(24,27,37,.98), rgba(13,15,21,.98)); border: 1px solid rgba(255,255,255,.08); box-shadow: 0 40px 90px -40px rgba(0,0,0,.95); animation: mg-modalIn .42s cubic-bezier(.22,1,.36,1); }
+@keyframes mg-modalIn { from { opacity: 0; transform: translateY(18px) scale(.97); } }
+.mg-modal-x { position: absolute; top: 14px; right: 14px; }
+.mg-seg { display: flex; gap: 6px; background: rgba(255,255,255,.04); padding: 4px; border-radius: 11px; }
+.mg-seg button { flex: 1; height: 38px; border: none; border-radius: 8px; background: transparent; color: var(--text-secondary); font-weight: 650; cursor: pointer; transition: .18s; }
+.mg-seg button.active { background: linear-gradient(135deg, rgba(82,111,255,.9), rgba(0,214,159,.85)); color: #fff; box-shadow: 0 8px 22px -10px rgba(82,111,255,.9); }
+.mg-seg button.long.active { background: linear-gradient(135deg, rgba(0,214,159,.95), rgba(0,180,140,.9)); }
+.mg-seg button.short.active { background: linear-gradient(135deg, rgba(255,92,122,.95), rgba(200,40,80,.9)); }
+.mg-lev { display: flex; gap: 6px; flex-wrap: wrap; }
+.mg-lev button { padding: 6px 12px; border-radius: 8px; border: 1px solid var(--secondary-stroke); background: transparent; color: var(--text-secondary); cursor: pointer; font-size: 12.5px; }
+.mg-lev button.active { border-color: var(--blue); color: #fff; background: rgba(82,111,255,.16); }
+.mg-range { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px; background: var(--bg-tertiary); outline: none; }
+.mg-range::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: linear-gradient(135deg, #526FFF, #00d69f); cursor: pointer; box-shadow: 0 0 14px -2px var(--blue); }
+.mg-big { font-size: 22px; font-weight: 750; font-variant-numeric: tabular-nums; }
+
+/* ===== scanner sweep (vision) ===== */
+.mg-scanline { position: relative; overflow: hidden; }
+.mg-scanline::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, rgba(0,214,159,.9), transparent); box-shadow: 0 0 16px 2px rgba(0,214,159,.7); animation: mg-scan 2.4s ease-in-out infinite; }
+@keyframes mg-scan { 0%,100% { top: 2%; } 50% { top: 96%; } }
+
+/* ===== reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    .magic-bg::before, .magic-bg .mg-orb, .mg-title-grad, .fx-ic, .fx-spark .line, .fx-bar span::after, .tk-track, .mg-marquee { animation: none !important; }
+    .mg-reveal { opacity: 1; transform: none; }
+}

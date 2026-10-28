@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /admin
+Disallow: /admin/
+Disallow: /install
+Disallow: /login
+Disallow: /signup
+Disallow: /settings
+Disallow: /portfolio
+
+Sitemap: https://yourdomain.com/sitemap.xml
